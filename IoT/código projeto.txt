@@ -1,0 +1,59 @@
+// Define os pinos dos LEDs e do botão
+const int verdePin = 2;
+const int vermelhoPin = 3;
+const int amareloPin = 4;
+const int botaoPin = 5;
+
+// Define variáveis para armazenar o estado dos LEDs
+bool verdeLigado = false;
+bool vermelhoLigado = false;
+bool amareloLigado = false;
+bool botaoPressionado = false;
+
+void setup() {
+  // Configura os pinos dos LEDs e do botão como saída ou entrada
+  pinMode(verdePin, OUTPUT);
+  pinMode(vermelhoPin, OUTPUT);
+  pinMode(amareloPin, OUTPUT);
+  pinMode(botaoPin, INPUT_PULLUP); // Habilita resistor de pull-up interno
+
+  // Desliga todos os LEDs no início
+  digitalWrite(verdePin, LOW);
+  digitalWrite(vermelhoPin, LOW);
+  digitalWrite(amareloPin, LOW);
+}
+
+void loop() {
+  // Verifica se o botão foi pressionado
+  if (digitalRead(botaoPin) == LOW && !botaoPressionado) { // Botão pressionado (pulldown) e não foi pressionado recentemente
+    // Define que o botão foi pressionado
+    botaoPressionado = true;
+
+    // Alterna os LEDs conforme as regras especificadas
+    if (!verdeLigado && !vermelhoLigado && !amareloLigado) {
+      digitalWrite(verdePin, HIGH);
+      verdeLigado = true;
+    } else if (verdeLigado && !vermelhoLigado && !amareloLigado) {
+      digitalWrite(verdePin, LOW);
+      digitalWrite(vermelhoPin, HIGH);
+      verdeLigado = false;
+      vermelhoLigado = true;
+    } else if (!verdeLigado && vermelhoLigado && !amareloLigado) {
+      digitalWrite(vermelhoPin, LOW);
+      digitalWrite(amareloPin, HIGH);
+      vermelhoLigado = false;
+      amareloLigado = true;
+    } else if (!verdeLigado && !vermelhoLigado && amareloLigado) {
+      digitalWrite(amareloPin, LOW);
+      digitalWrite(verdePin, HIGH);
+      amareloLigado = false;
+      verdeLigado = true;
+    }
+
+    // Aguarda um curto período para evitar múltiplas detecções do botão
+    delay(250);
+  } else if (digitalRead(botaoPin) == HIGH) { // Botão solto
+   // Define que o botão foi solto
+    botaoPressionado = false;
+  }
+}
