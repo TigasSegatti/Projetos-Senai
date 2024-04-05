@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "Tiago Segatti",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 6.4,
+      "left": 216.8,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 236.6,
+      "left": 240,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 243.95,
+      "left": 96,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "btn1:1.l", "r1:2", "green", [ "h0" ] ],
+    [ "r1:2", "esp:4", "green", [ "v0" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "esp:5V", "violet", [ "h-105.6", "v192.1", "h-38.4" ] ],
+    [ "lcd1:SCL", "esp:22", "cyan", [ "h0" ] ],
+    [ "lcd1:SDA", "esp:21", "green", [ "h-86.4", "v19.4" ] ],
+    [ "btn1:2.l", "esp:GND.1", "black", [ "h-278.4", "v-115" ] ],
+    [ "r1:1", "esp:3V3", "red", [ "h-115.2", "v-220.8" ] ]
+  ],
+  "dependencies": {}
+}
