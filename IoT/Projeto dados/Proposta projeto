@@ -1,0 +1,10 @@
+As regras iniciais para o primeiro lançamento são as seguintes:
+
+Dois dados são lançados e se as marcações de pontos em ambos os dados somarem os números 7 ou 11, então a pessoa que lançou os dados é vencedora. 
+No primeiro lançamento, este conjunto de soma de pontos é considerado uma derrota: 2, 3 ou 12.
+Se o número de pontos resultantes (soma dos dois dados) do primeiro lançamento não for nem uma vitória nem uma derrota (ou seja, 4, 5,6, 8, 9, 10), então o número lançado é chamado de ponto. 
+Se um ponto for o resultado do primeiro lançamento, então o jogador deve lançar os dados repetidamente na esperança de igualar o número do ponto para vencer o  jogo.
+Se, no entanto, durante o processo, o padrão de pontos do jogador for igual ao número 7, então ele perde o jogo, e o jogo é reiniciado de volta para o conjunto inicial de regras para o próximo lançamento.
+Ao codificar esse processo, o primeiro conjunto de regras e o segundo conjunto de regras são ambos diretos. A complicação está em alternar entre os dois conjuntos de regras.
+---------------------------------------------------------------------------------------
+código usando o ESP32 que utilize uma porta digital que simule o lançamento dos dados e apresente o resultado em um display de cristal liquido azul 16x2 se conectando via I2C com o ESP32. 
