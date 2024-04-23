@@ -1,0 +1,21 @@
+O semáforo de carros em operação normal segue os seguintes tempos:
+• Luz verde para carros: 90 segundos (a luz para semáforo de pedestres fica
+vermelha durante este período).
+• Luz amarela para carros: 6 segundos (a luz para semáforo de pedestres
+continua vermelha).
+• Luz vermelha para carros: 90 segundos (a luz para semáforo de pedestres fica
+verde).
+• Nos últimos 10 segundos da luz vermelha do semáforo para carros, um sinal
+sonoro para pedestres será acionado. Este sinal terá um tom de 329Hz, durará
+1 segundo, seguido por uma pausa de 1,5 segundos, e será repetido 4 vezes.
+
+
+Ao pressionar o botão de pedestres, a solicitação de passagem será ativada:
+• Após 20 segundos, o semáforo para carros mudará para luz amarela por 6
+segundos, enquanto a luz vermelha para carros será ativada por 35 segundos.
+Simultaneamente, o semáforo para pedestres mudará para verde.
+• Nos últimos 10 segundos da luz verde para pedestres, um sinal sonoro para
+pedestres será acionado. Este sinal terá um tom de 329Hz, durará 1 segundo,
+seguido por uma pausa de 1,5 segundos, e será repetido 4 vezes.
+Se o botão de pedestre for pressionado faltando menos de 20 segundos para o
+semáforo para carros mudar para vermelho, nenhuma ação será iniciada
