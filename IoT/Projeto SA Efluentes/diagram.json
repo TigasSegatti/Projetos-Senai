@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "Tiagooo",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 62.3, "left": -206.6, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -51.6,
+      "left": -245.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 99.4,
+      "left": -260.05,
+      "rotate": 270,
+      "attrs": { "value": "300" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -46.5,
+      "left": -13.7,
+      "attrs": { "distance": "400" }
+    }
+  ],
+  "connections": [
+                 
+    [ "esp:D5", "led1:A", "green", [ "h52.67", "v-120.92", "h-28.8" ] ],
+    [ "led1:C", "r1:2", "green", [ "v0" ] ],
+    [ "esp:GND.2", "r1:1", "black", [ "h-28.8", "v-76.9" ] ],
+    [ "ultrasonic1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "ultrasonic1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "esp:D2", "ultrasonic1:ECHO", "gray", [ "h0" ] ],
+    [ "esp:D4", "ultrasonic1:TRIG", "purple", [ "h172.5", "v-134.3" ] ]
+  ],
+  "dependencies": {}
+}
