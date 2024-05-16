@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "author": "Tiagooo",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 189, "left": -323.6, "attrs": {} },
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 542.3, "left": -197, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 514.8,
+      "left": -437.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 704.2,
+      "left": -423.25,
+      "rotate": 270,
+      "attrs": { "value": "300" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": 145.5,
+      "left": -119.3,
+      "attrs": { "distance": "400" }
+    },
+    { "type": "board-ds18b20", "id": "temp1", "top": 200.47, "left": -216.72, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 340.8,
+      "left": -230.95,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:D5", "led1:A", "green", [ "h52.67", "v-120.92", "h-292.97", "v44.12" ] ],
+    [ "led1:C", "r1:2", "green", [ "v0" ] ],
+    [ "esp:GND.2", "r1:1", "black", [ "h-28.8", "v-76.9" ] ],
+    [ "esp:D4", "bb1:28t.b", "gold", [ "h0" ] ],
+    [ "esp:GND.1", "bb1:bn.25", "black", [ "h0" ] ],
+    [ "esp:3V3", "bb1:bp.25", "red", [ "v0", "h114.9", "v-326.4" ] ],
+    [ "esp:D2", "bb1:29t.b", "orange", [ "h0" ] ],
+    [ "bb1:tp.15", "bb1:27t.b", "red", [ "v0" ] ],
+    [ "bb1:tn.14", "bb1:30t.c", "black", [ "v0" ] ],
+    [ "bb1:bp.1", "bb1:tp.1", "red", [ "v-0.9", "h-46.4", "v-182.4" ] ],
+    [ "bb1:bn.1", "bb1:tn.1", "black", [ "v-1.3", "h-36.8", "v-172.8" ] ],
+    [ "bb1:12t.c", "bb1:bn.10", "black", [ "v0" ] ],
+    [ "bb1:10t.c", "bb1:bp.8", "red", [ "v0" ] ],
+    [ "bb1:11t.e", "bb1:11b.f", "green", [ "v0" ] ],
+    [ "esp:D12", "bb1:11t.c", "blue", [ "h-38.4", "v-19.9" ] ],
+    [ "ultrasonic1:VCC", "bb1:27t.a", "", [ "$bb" ] ],
+    [ "ultrasonic1:TRIG", "bb1:28t.a", "", [ "$bb" ] ],
+    [ "ultrasonic1:ECHO", "bb1:29t.a", "", [ "$bb" ] ],
+    [ "ultrasonic1:GND", "bb1:30t.a", "", [ "$bb" ] ],
+    [ "r2:1", "bb1:11b.g", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:bp.9", "", [ "$bb" ] ],
+    [ "temp1:GND", "bb1:10t.b", "", [ "$bb" ] ],
+    [ "temp1:DQ", "bb1:11t.b", "", [ "$bb" ] ],
+    [ "temp1:VCC", "bb1:12t.b", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
